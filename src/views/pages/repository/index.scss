@@ -11,23 +11,43 @@
   }
 }
 .main-index {
-	padding: 10px;
+  padding: 10px;
   .top-info {
     display: flex;
     justify-content: space-between;
     align-content: center;
     .left-info {
       ul {
-		  margin-top: 0;
-		  padding-left: 0;
+        margin-top: 0;
+        padding-left: 0;
         li {
           list-style: none;
-		  line-height: 35px;;
+          line-height: 35px;
         }
       }
     }
   }
-  .title{
-	  margin-bottom: 15px;
+  .title {
+    margin-bottom: 15px;
+  }
+}
+.left-index {
+  .box-card {
+    .item {
+      padding: 10px 0;
+      border-bottom: 1px solid;
+    }
+    .text {
+      word-wrap: break-word;
+      p {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        margin: 0;
+      }
+	  .name{
+		  cursor: pointer;
+	  }
+    }
   }
 }
