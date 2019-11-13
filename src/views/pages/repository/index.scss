@@ -1,0 +1,33 @@
+.index {
+  display: flex;
+  width: 100%;
+  .left {
+    width: 20%;
+  }
+  .main {
+    border: 1px solid red;
+    margin-left: 10px;
+    width: 80%;
+  }
+}
+.main-index {
+	padding: 10px;
+  .top-info {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    .left-info {
+      ul {
+		  margin-top: 0;
+		  padding-left: 0;
+        li {
+          list-style: none;
+		  line-height: 35px;;
+        }
+      }
+    }
+  }
+  .title{
+	  margin-bottom: 15px;
+  }
+}
