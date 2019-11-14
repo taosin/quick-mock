@@ -2,16 +2,12 @@
 <div>
     <el-table :data="tableData" size="small" ref="sortTable" stripe :indent="30" style="width: 100%" row-key="id" border default-expand-all>
         <el-table-column label="操作" width="60" align="center">
-            <!-- <el-button type="primary" icon="el-icon-plus" circle></el-button> -->
-            <!-- <Editor v-if="scope.row.children"/> -->
-            <!-- <template slot-scope="scope">
-</template> -->
         </el-table-column>
-        <el-table-column prop="name" label="字段名" width="100">
+        <el-table-column prop="name" label="字段名">
             <template slot-scope="scope">
-                <div class="a" :style="{paddingLeft:scope.row.children ?'':'10px'}">
-					{{scope.row.name}}
-				</div>
+                <div class="a" :style="{marginLeft:(scope.row.level-1)*15+'px'}">
+                    {{scope.row.name}}
+                </div>
             </template>
         </el-table-column>
         <el-table-column prop="required" label="必选" width="60">
@@ -39,14 +35,34 @@ export default {
                 init: '312312',
                 type: 'Object',
                 desc: '上海市普陀区金沙江路 1518 弄',
+                level: 1,
                 children: [{
+                    level: 2,
                     id: 1 - 1,
-                    name: '名称321',
+                    name: '名称32',
                     required: true,
                     init: '312312',
                     type: 'Object',
                     desc: '上海市普陀区金沙江路 1518 弄',
+                    children: [{
+                        level: 3,
+                        id: 1 - 1 - 1,
+                        name: '名称32eqeqweqwe1',
+                        required: true,
+                        init: '312312',
+                        type: 'Object',
+                        desc: '上海市普陀区金沙江路 1518 弄',
+                    }, {
+                        level: 3,
+                        id: 1 - 2 - 3,
+                        name: '名称3蛐蛐儿二12',
+                        required: true,
+                        init: '312312',
+                        type: 'Object',
+                        desc: '上海市普陀区金沙江路 1518 弄',
+                    }]
                 }, {
+                    level: 2,
                     id: 1 - 2,
                     name: '名称312',
                     required: true,
@@ -56,6 +72,7 @@ export default {
                 }]
             }, {
                 id: 2,
+                level: 1,
                 name: '类型',
                 required: true,
                 init: '312312',
@@ -63,6 +80,7 @@ export default {
                 desc: '上海市普陀区金沙江路 1518 弄'
             }, {
                 id: 3,
+                level: 1,
                 name: '用户类型',
                 required: true,
                 init: '312312',
@@ -70,6 +88,7 @@ export default {
                 desc: '上海市普陀区金沙江路 1518 弄'
             }, {
                 id: 4,
+                level: 1,
                 name: '打款金额',
                 required: true,
                 init: '312312',
@@ -77,6 +96,9 @@ export default {
                 desc: '上海市普陀区金沙江路 1518 弄'
             }]
         }
+    },
+    mounted() {
+        this.$refs.sortTabel.toggleRowExpansion()
     },
     methods: {
         load(tree, treeNode, resolve) {
