@@ -1,21 +1,10 @@
 <template>
 <header>
-    <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
-        <el-menu-item index="1">首页</el-menu-item>
-        <el-submenu index="2">
-            <template slot="title">项目</template>
-            <el-menu-item index="2-1">选项1</el-menu-item>
-            <el-menu-item index="2-2">选项2</el-menu-item>
-            <el-menu-item index="2-3">选项3</el-menu-item>
-            <el-submenu index="2-4">
-                <template slot="title">团队</template>
-                <el-menu-item index="2-4-1">选项1</el-menu-item>
-                <el-menu-item index="2-4-2">选项2</el-menu-item>
-                <el-menu-item index="2-4-3">选项3</el-menu-item>
-            </el-submenu>
-        </el-submenu>
-        <el-menu-item index="3" disabled>消息中心</el-menu-item>
-        <el-menu-item index="4"><a href="https://www.ele.me" target="_blank">订单管理</a></el-menu-item>
+    <el-menu :default-active="activeIndex" router class="el-menu-demo" mode="horizontal">
+        <el-menu-item index="/">首页</el-menu-item>
+		<el-menu-item index="repository">项目</el-menu-item>
+        <el-menu-item index="teams">团队</el-menu-item>
+        <el-menu-item index="about"><a href="https://www.baidu.com" target="_blank">其他</a></el-menu-item>
     </el-menu>
 </header>
 </template>
@@ -24,14 +13,10 @@
 export default {
     data() {
         return {
-            activeIndex: '1',
-            activeIndex2: '1'
+            activeIndex: 'repository',
         };
     },
     methods: {
-        handleSelect(key, keyPath) {
-            this.$message.error(key, keyPath)
-        }
     }
 }
 </script>

@@ -14,12 +14,19 @@ const routes = [{
 		{
 			name: 'dashboard',
 			path: '/dashboard',
+			meta: '首页',
 			component: () => import('@/views/pages/dashboard/index.vue')
 		},
 		{
 			name: 'repository',
 			path: '/repository',
-			component: () => import('@/views/pages/repository/index.vue')
+			meta: '项目',
+			component: () => import('@/views/pages/repository/index.vue'),
+		},
+		{
+			name: 'list',
+			path: '/repository/list',
+			component: () => import('@/views/pages/repository/list.vue')
 		}
 	]
 }, {
