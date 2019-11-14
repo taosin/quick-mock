@@ -5,19 +5,19 @@
     width: 20%;
   }
   .main {
-    border: 1px solid red;
     margin-left: 10px;
     width: 80%;
   }
 }
 .main-index {
   padding: 10px;
+  padding-top: 0;
   .top-info {
     display: flex;
     justify-content: space-between;
     align-content: center;
     .left-info {
-      ul {
+       ul {
         margin-top: 0;
         padding-left: 0;
         li {

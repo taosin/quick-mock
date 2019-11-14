@@ -2,18 +2,13 @@
 <div class="main-index">
     <div class="top-info">
         <div class="left-info size-14px color-999">
-            <ul>
-                <li class="size-16 color-333">{{obj.title}}</li>
-                <li>地址：{{obj.title}}</li>
-                <li>类型：{{obj.title}}</li>
-                <li>状态码：{{obj.title}}</li>
-            </ul>
+            <Info :value="obj" :editting="editting"/>
         </div>
         <div class="right-part">
-            <el-button type="default">修改</el-button>
-            <el-button type="primary">保存</el-button>
+            <el-button type="default" @click="editting=!editting">{{editting?'保存':'修改'}}</el-button>
         </div>
     </div>
+	<div class="line"></div>
     <div class="request-part" v-for="m in 1" :key="m">
         <div class="title size-16">
             <span>请求参数</span>
@@ -22,7 +17,14 @@
             <Editor />
         </div>
     </div>
+	<div class="line"></div>
     <div class="response-part">
+		<div class="title size-16">
+            <span>响应参数</span>
+        </div>
+        <div class="table-part">
+            <Editor />
+        </div>
     </div>
 </div>
 </template>
@@ -30,13 +32,15 @@
 <script>
 export default {
     components: {
-        Editor: () => import('./editor')
+        Editor: () => import('./editor'),
+        Info: () => import('./info'),
     },
     data() {
         return {
             status: 'QUERY',
+			editting: false,
             obj: {
-                title: '审批提现申请(manager)',
+                name: '审批提现申请(manager)',
                 method: 'POST',
                 code: '200',
                 path: '/v1/accounts/withdrawal-applications/{applicationId}',
